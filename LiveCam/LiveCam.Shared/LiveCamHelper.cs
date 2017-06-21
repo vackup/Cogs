@@ -20,9 +20,7 @@ namespace LiveCam.Shared
             get;
             set;
         }
-        public static Action<string> GreetingsCallback { get => greetingsCallback; set => greetingsCallback = value; }
-
-        private static Action<string> greetingsCallback;
+        public static Action<string> GreetingsCallback { get; set; }
 
         public static void Init(Action throttled = null)
         {
@@ -85,7 +83,7 @@ namespace LiveCam.Shared
                 if (e.IdentifiedPersons.Any())
                 {
 
-                    if (greetingsCallback != null)
+                    if (GreetingsCallback != null)
                     {
                         DisplayMessage(greetingsText);
                     }
@@ -143,7 +141,7 @@ namespace LiveCam.Shared
 
         static void DisplayMessage(string greetingsText)
         {
-            greetingsCallback?.Invoke(greetingsText);
+            GreetingsCallback?.Invoke(greetingsText);
         }
     }
 }
