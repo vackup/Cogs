@@ -71,9 +71,6 @@ namespace LiveCam.Droid
         {
             base.OnResume();
             StartCameraSource();
-            
-
-
         }
 
         protected override void OnPause()
